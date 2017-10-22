@@ -1,0 +1,9 @@
+Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\bin\Debug\FaxSender.exe.config
+Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\bin\Debug\FaxSender.exe
+Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\bin\Debug\FaxSender.pdb
+Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.csprojResolveAssemblyReference.cache
+Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.Form1.resources
+Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.Properties.Resources.resources
+Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.csproj.GenerateResource.Cache
+Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.exe
+Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.pdb
