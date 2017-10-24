@@ -7,3 +7,13 @@ Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.Pro
 Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.csproj.GenerateResource.Cache
 Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.exe
 Z:\VMExpertise\SOAP\FaxSenderService\FaxSender\FaxSender\obj\Debug\FaxSender.pdb
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\bin\Debug\FaxSender.exe.config
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\bin\Debug\FaxSender.exe
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\bin\Debug\FaxSender.pdb
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\obj\Debug\FaxSender.csprojResolveAssemblyReference.cache
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\obj\Debug\FaxSender.Form1.resources
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\obj\Debug\FaxSender.Properties.Resources.resources
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\obj\Debug\FaxSender.csproj.GenerateResource.Cache
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\obj\Debug\FaxSender.csproj.CoreCompileInputs.cache
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\obj\Debug\FaxSender.exe
+C:\Users\LT5244\source\repos\FaxSender\FaxSender\obj\Debug\FaxSender.pdb

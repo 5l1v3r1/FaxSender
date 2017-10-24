@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Schema;
 
 namespace FaxSender
@@ -47,6 +48,14 @@ namespace FaxSender
 
             client.SendFAX(parameter);
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            XmlTextWriter textWriter = new XmlTextWriter("FAXgateway.xml", null);
+            textWriter.Formatting = Formatting.Indented;
+            XmlQualifiedName qname = new XmlQualifiedName("SendOutboundFAX", "");
+           
         }
     }
 }

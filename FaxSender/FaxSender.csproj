@@ -61,6 +61,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="XMLGenerator\Facets.cs" />
+    <Compile Include="XMLGenerator\Generator.cs" />
+    <Compile Include="XMLGenerator\InstanceAttribute.cs" />
+    <Compile Include="XMLGenerator\InstanceElement.cs" />
+    <Compile Include="XMLGenerator\InstanceGroup.cs" />
+    <Compile Include="XMLGenerator\InstanceObject.cs" />
+    <Compile Include="XMLGenerator\XmlGen.cs" />
+    <Compile Include="XMLGenerator\XmlSampleGenerator.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -73,6 +81,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Files\DOCx-sample.docx" />
+    <None Include="Files\xHTML-sample.xhtml" />
     <None Include="Schemas\FAXGateway.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -97,17 +107,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SendFAXGatewayWebReference\configuration91.svcinfo" />
-    <None Include="Service References\SendFAXGatewayWebReference\configuration.svcinfo" />
+    <None Include="Service References\SendFAXGatewayWebReference\configuration91.svcinfo">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SendFAXGatewayWebReference\configuration.svcinfo">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\SendFAXGatewayWebReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <Content Include="XML\TheFax.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Files\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
