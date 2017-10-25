@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+
+<!--
+    Change History 19/07/2011 - Initial Version
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fax="http://www.childmaintenance.gsi.gov.uk/futurescheme/outboundCorrespondence/faxgateway/1.0"
+    targetNamespace="http://www.childmaintenance.gsi.gov.uk/futurescheme/outboundCorrespondence/faxgateway/1.0"
+    elementFormDefault="qualified" attributeFormDefault="qualified">
+    <xs:element name="SendOutboundFAX" type="fax:SendOutboundFAXType"/>
+    <xs:element name="SendOutboundFAXAck" type="fax:SendOutboundFAXAckType"/>
+    <xs:element name="CheckFAXStatus" type="fax:CheckFAXStatusType"/>
+    <xs:element name="SendOutboundFAXResult" type="fax:SendOutboundFAXResultType"/>
+
+
+    <xs:complexType name="SendOutboundFAXType">
+        <xs:annotation>
+            <xs:documentation>Description: This identifies the attributes for sending Fax</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="UserName" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the username assigned to CMEC Account.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="PassWord" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the password corresponding to username.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="Destination" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the destination FAX number.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Priority" type="fax:PriorityType">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the priority of FAX. The allowed values are from 1-9, where 1 is highest priority and 9 is lowest priority. </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Receipt" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This is a placeholder.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="Sender" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the Sender FAX number. </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="FaxRequestDateTime" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the Date and Time when FAX has sent to Contractor from CMEC. </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="Documents" type="fax:Documents"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Documents">
+        <xs:annotation>
+            <xs:documentation>Description: This identifies the list of documents to be sent as FAX.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Document" type="fax:Document" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Document">
+        <xs:annotation>
+            <xs:documentation>Description: This identifies the details of an individual document.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="SeqNumber" type="xs:positiveInteger">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the sequence of the document to be sent. The allowed value is of type xs:positiveInteger and starts from 1. 
+The order of printing is from lowest seq number to highest seq number, ie. The document having lowest sequence number need to be printed first and so on.  </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="DocumentId" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the identification number of an individual document.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="DocumentType" type="fax:DocumentType">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the type of an individual document. e.g. PDF, xHTML, MS-Doc etc.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="DocumentContent" type="xs:base64Binary">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the binary content of an individual document.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="SendOutboundFAXAckType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="TransactionRef"
+                type="fax:TransactionRefType">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the Contractor assigned transaction reference for SendOutboundFAX activity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="Outcome" type="fax:OutcomeType">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the status for SendOutboundFAX activity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the error code for SendOutboundFAX activity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="ErrorText" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the error description for SendOutboundFAX activity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="CheckFAXStatusType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="UserName" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the username assigned to CMEC Account.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="PassWord" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the password corresponding to username.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="TransactionRef"
+                type="fax:TransactionRefType">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the Contractor assigned transaction reference for SendOutboundFAX activity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SendOutboundFAXResultType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="TransactionRef"
+                type="fax:TransactionRefType">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the Contractor assigned transaction reference for SendOutboundFAX activity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="fax:StatusType">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the status for SendOutboundFAX activity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Outcome" type="fax:OutcomeType">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the status for SendOutboundFAX activity. This value will be present only if Status is Complete. If status is incomplete the value will not be set.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the error code for SendOutboundFAX activity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="ErrorText" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the error description for SendOutboundFAX activity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="FaxSendDateTime" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Description: This identifies the Date and Time when FAX has sent by Contractor. </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="TransactionRefType">
+        <xs:annotation>
+            <xs:documentation>Description:  </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="fax:String32"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="OutcomeType">
+        <xs:annotation>
+            <xs:documentation>Description:  </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Success"/>
+            <xs:enumeration value="Failure"/>
+            <xs:enumeration value="Acknowledge"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="StatusType">
+        <xs:annotation>
+            <xs:documentation>Description:  </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Complete"/>
+            <xs:enumeration value="Incomplete"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DocumentType">
+        <xs:annotation>
+            <xs:documentation>Description:  </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PDF"/>
+            <xs:enumeration value="xHTML"/>
+            <xs:enumeration value="MS-DOC"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PriorityType">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:maxInclusive value="9"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="String32">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
