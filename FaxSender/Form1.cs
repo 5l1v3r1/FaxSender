@@ -11,6 +11,7 @@ using System.Xml;
 using System.Xml.Schema;
 using Microsoft.Xml.XMLGen;
 using System.Diagnostics;
+using System.IO;
 
 namespace FaxSender
 {
@@ -61,6 +62,7 @@ namespace FaxSender
             XmlQualifiedName qname = new XmlQualifiedName("SendOutboundFAX", "");
             XmlSampleGenerator generator = new XmlSampleGenerator("..\\..\\Schemas\\FAXGateway.xsd",qname); /* The "..\..\" are to avoid moving the Schema directory to the Debug directory - for some reason the system was looking for the schema file in .\bin\Debug\Schemas */
             generator.WriteXml(textWriter);
+            MessageBox.Show("Done!");
         }   
 
         private void button4_Click(object sender, EventArgs e)
@@ -91,6 +93,17 @@ namespace FaxSender
                 //}
             } 
                 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            byte[] pdfBytes = File.ReadAllBytes("pdf-sample.pdf");
+            string pdfBase64 = Convert.ToBase64String(pdfBytes);
+            System.IO.File.WriteAllText("pdf-sample.txt", pdfBase64);
+
+
+
         }
     }
 }

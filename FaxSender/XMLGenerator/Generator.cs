@@ -1314,8 +1314,13 @@ namespace Microsoft.Xml.XMLGen {
                     return Convert.ToBase64String(enumValue as byte[]);
                 }
                 else {
-                    return "base64Binary Content";
-                }
+                // return "base64Binary Content";
+
+                byte[] pdfBytes = File.ReadAllBytes("..\\..\\Files\\pdf-sample.pdf");
+                string pdfBase64 = Convert.ToBase64String(pdfBytes);
+                return pdfBase64;
+
+            }
           }            
       }
     
